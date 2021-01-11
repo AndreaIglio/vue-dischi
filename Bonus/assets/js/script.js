@@ -6,21 +6,46 @@ let app = new Vue ({
     data: {
 
         cdList : [],
-
+        genreList: ['All'],
     },
     methods: {
         
+        filter: function (){
+
+            console.log('pino');
+            
+          
+            
+        },
+
+
     },
     mounted() {
         axios.get("https://flynn.boolean.careers/exercises/api/array/music").then(response => {
             // console.log(response.data.response);
             this.cdList = response.data.response;
+
+            this.cdList.forEach(element => {
+                element.visible = true;
+                if(this.genreList.indexOf(element.genre)== -1){
+                    this.genreList.push(element.genre)
+                }
+                
+                
+            });
+
+            console.log(this.genreList);
             console.log(this.cdList);
+            
+            
+
+                
 
         }).catch(error=>{
             console.log(error);
         })
     },
+    
 
 })
 

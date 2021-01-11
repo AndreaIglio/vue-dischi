@@ -48,31 +48,41 @@
     </div>
   
   </header>
-  <div class="flex column wrapper">
+  <main id="root">
+  <div class="flex column wrapper " >
 
     <div class="flex select_genre">
      <label for="cars">Choose a genre: </label>
-     <select name="genres" id="genre">
+     <!-- <select name="genres" id="genre" >
        <option value="all">All</option>
        <option value="pop">Pop</option>
        <option value="rock">Rock</option>
        <option value="metal">Metal</option>
        <option value="jazz">Jazz</option>
+     </select> -->
+
+     <select name="genres" id="" >
+       <option value="" v-for="(item, index) in genreList" @click='filter()'>{{item}}</option>
      </select>
+   
     </div>
 
     <div class="cds-container container" id="root">
     <!-- Disco ad esempio -->
    
    
-    <div v-for="(item, index) in cdList" :key="index" class="cd">
-      <img :src="cdList[index].poster" alt="">
+    <div v-for="(item, index) in cdList" :key="index" class="cd" v-if="cdList[index].visible == true">
+      <img :src="cdList[index].poster" alt="" >
       <h3>{{cdList[index].title}}</h3>
       <span class="author">{{cdList[index].author}}</span>
       <span class="year">{{cdList[index].year}}</span>
+      <span class="year">{{cdList[index].genre}}</span>
     </div>
   </div>
+    
+
 </div>
+</main>
 
     <!-- Axios -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
