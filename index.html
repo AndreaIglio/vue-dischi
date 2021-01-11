@@ -48,13 +48,13 @@
     </div>
   </header>
 
-  <div class="cds-container container">
+  <div class="cds-container container" id="root">
     <!-- Disco ad esempio -->
-    <div class="cd">
-      <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Ten_Summoner%27s_Tales.jpg" alt="">
-      <h3>Ten's Summoners Tales</h3>
-      <span class="author">Sting</span>
-      <span class="year">1993</span>
+    <div v-for="(item, index) in cdList" :key="index" class="cd">
+      <img :src="cdList[index].poster" alt="">
+      <h3>{{cdList[index].title}}</h3>
+      <span class="author">{{cdList[index].author}}</span>
+      <span class="year">{{cdList[index].year}}</span>
     </div>
   </div>
 
