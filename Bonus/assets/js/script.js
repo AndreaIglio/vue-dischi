@@ -9,15 +9,7 @@ let app = new Vue ({
         genreList: ['All'],
     },
     methods: {
-        
-        filter: function (){
-
-            console.log('pino');
-            
-          
-            
-        },
-
+    
 
     },
     mounted() {
@@ -26,20 +18,14 @@ let app = new Vue ({
             this.cdList = response.data.response;
 
             this.cdList.forEach(element => {
-                element.visible = true;
+                element.visible='true';
                 if(this.genreList.indexOf(element.genre)== -1){
                     this.genreList.push(element.genre)
                 }
-                
-                
             });
 
             console.log(this.genreList);
-            console.log(this.cdList);
-            
-            
-
-                
+            console.log(this.cdList);   
 
         }).catch(error=>{
             console.log(error);

@@ -62,7 +62,7 @@
      </select> -->
 
      <select name="genres" id="" >
-       <option value="" v-for="(item, index) in genreList" @click='filter()'>{{item}}</option>
+       <option value="genre" v-for="(item, index) in genreList" @click="">{{item}}</option>
      </select>
    
     </div>
@@ -71,7 +71,7 @@
     <!-- Disco ad esempio -->
    
    
-    <div v-for="(item, index) in cdList" :key="index" class="cd" v-if="cdList[index].visible == true">
+    <div v-for="(item, index) in cdList" :key="index" class="cd" >
       <img :src="cdList[index].poster" alt="" >
       <h3>{{cdList[index].title}}</h3>
       <span class="author">{{cdList[index].author}}</span>
